@@ -1,0 +1,42 @@
+@import "../style/_vars.scss";
+
+.device-card {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 1px 2px 5px #afafaf;
+    border-radius: 3px;
+
+    .device-card__link {
+        flex: 1;
+    }
+
+    .device-card__content {
+        flex: 1;
+        margin: 1.5rem 0;
+        display: flex;
+        flex-direction: column;
+        // align-items: center;
+
+        .device-card__title {
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .device-card__price {
+            color: $red;
+        }
+    }
+
+    .device-card__button {
+        filter: grayscale(.5);
+    }
+
+    .device-card__img {
+        width: 100%;
+        height: 20rem;
+        object-fit: contain;
+    }
+}
+

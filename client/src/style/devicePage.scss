@@ -1,0 +1,23 @@
+@import "./_vars.scss";
+
+.device-page__header {
+    margin: 1.5rem 0;
+}
+
+.device-page__img-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.device-page__description-wrapper {
+    margin-top: 2rem;
+}
+
+.device-page__button-block {
+    padding: 1rem;
+    border: 1px solid $gray;
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
