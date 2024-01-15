@@ -9,7 +9,7 @@ ___
 
 **NPM version:**
 
-```node version 18.17```
+```node version 9.6.7```
 ___
 
 **Clone repository:**
