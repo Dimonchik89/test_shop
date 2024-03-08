@@ -22,6 +22,9 @@ const Pagination: React.FC<IPaginationProps> = ({ allPages }) => {
         } else {
             setPahes([])
         }
+
+        console.log(allPages);
+        
     }, [allPages])
 
 

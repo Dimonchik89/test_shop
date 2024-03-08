@@ -58,22 +58,28 @@ const productSlice = createSlice({
         changeFindName: (state, action: PayloadAction<string>) => {
             state.findName = action.payload;
             if (state.filter === "all" && !state.findName) {
-                state.actualProducts = state.products?.slice(6 * (+state.currentPage - 1), 6 * +state.currentPage) || null;
+                state.actualProducts = state.products?.slice(6 * (+state.currentPage - 1), 6 * +state.currentPage) || [];
+                state.allPages = Math.ceil(state?.actualProducts.length / 6) //
             } else if (state.filter === "all" && !!state.findName) {
-                state.actualProducts = state.products?.slice(6 * (+state.currentPage - 1), 6 * +state.currentPage)?.filter(item => item.title.toLowerCase().includes(state.findName.toLowerCase())) || null;
+                state.actualProducts = state.products?.slice(6 * (+state.currentPage - 1), 6 * +state.currentPage)?.filter(item => item.title.toLowerCase().includes(state.findName.toLowerCase())) || [];
+                state.allPages = Math.ceil(state?.actualProducts.length / 6)  //
             } else if (state.filter !== "all" && !!state.findName) {
-                state.actualProducts = state.products?.slice(6 * (+state.currentPage - 1), 6 * +state.currentPage)?.filter(item => item.category === state.filter)?.filter(item => item.title.toLowerCase().includes(state.findName.toLowerCase())) || null;
+                state.actualProducts = state.products?.slice(6 * (+state.currentPage - 1), 6 * +state.currentPage)?.filter(item => item.category === state.filter)?.filter(item => item.title.toLowerCase().includes(state.findName.toLowerCase())) || [];
+                state.allPages = Math.ceil(state?.actualProducts.length / 6)  //
             } else {
-                state.actualProducts = state.products?.slice(6 * (+state.currentPage - 1), 6 * +state.currentPage)?.filter(item => item.category === state.filter) || null;
+                state.actualProducts = state.products?.slice(6 * (+state.currentPage - 1), 6 * +state.currentPage)?.filter(item => item.category === state.filter) || [];
+                state.allPages = Math.ceil(state?.actualProducts.length / 6)  // 
             }
 
         },
         resetFindName: state => {
             state.findName = "";
             if (state.filter === "all") {
-                state.actualProducts = state.products?.slice(6 * (+state.currentPage - 1), 6 * +state.currentPage) || null;
+                state.actualProducts = state.products?.slice(6 * (+state.currentPage - 1), 6 * +state.currentPage) || [];
+                state.allPages = Math.ceil(state?.products.length / 6)
             } else {
-                state.actualProducts = state.products?.slice(6 * (+state.currentPage - 1), 6 * +state.currentPage)?.filter(item => item.category === state.filter) || null;
+                state.actualProducts = state.products?.slice(6 * (+state.currentPage - 1), 6 * +state.currentPage)?.filter(item => item.category === state.filter) || [];
+                state.allPages = Math.ceil(state?.actualProducts.length / 6)
             }
 
         },
